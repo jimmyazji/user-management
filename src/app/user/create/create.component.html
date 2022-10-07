@@ -1,0 +1,125 @@
+<div>
+  <h2>Create a new user!</h2>
+  <form [formGroup]="userForm" (ngSubmit)="addUser()">
+    <div class="form-grid">
+      <div class="input-block">
+        <span
+          *ngIf="f['firstName'].errors?.['required'] && submitted"
+          class="error-msg"
+        >
+          First name is required!
+        </span>
+        <span
+          *ngIf="(f['firstName'].errors?.['minlength'] || f['firstName'].errors?.['maxlength'] )&& submitted"
+          class="error-msg"
+        >
+          First name must be between 3 to 255 letters!
+        </span>
+        <div class="flex-break"></div>
+        <input
+          name="firstName"
+          formControlName="firstName"
+          placeholder="First name"
+          autofocus
+          title="First name"
+          id="firstName"
+          [ngClass]="{
+            'input-danger': f['firstName'].errors && submitted
+          }"
+        />
+      </div>
+      <div class="input-block">
+        <span
+          *ngIf="f['lastName'].errors?.['required'] && submitted"
+          class="error-msg"
+        >
+          Last name is required!
+        </span>
+        <span
+          *ngIf="(f['lastName'].errors?.['minlength'] || f['lastName'].errors?.['maxlength'] )&& submitted"
+          class="error-msg"
+        >
+          Last name must be between 3 to 255 letters!
+        </span>
+        <div class="flex-break"></div>
+        <input
+          name="lastName"
+          formControlName="lastName"
+          placeholder="Last name"
+          title="Last name"
+          id="lastName"
+          [ngClass]="{
+            'input-danger': f['lastName'].errors && submitted
+          }"
+        />
+      </div>
+      <div class="input-block">
+        <span
+          *ngIf="f['address'].errors?.['required'] && submitted"
+          class="error-msg"
+        >
+          Address is required!
+        </span>
+        <div class="flex-break"></div>
+        <input
+          name="address"
+          formControlName="address"
+          placeholder="Address"
+          title="Address"
+          id="address"
+          [ngClass]="{
+            'input-danger': f['address'].errors && submitted
+          }"
+        />
+      </div>
+      <div class="input-block">
+        <span
+          *ngIf="f['phone'].errors?.['required'] && submitted"
+          class="error-msg"
+        >
+          Phone is required!
+        </span>
+        <span
+          *ngIf="(f['phone'].errors?.['minlength'] || f['phone'].errors?.['maxlength'] )&& submitted"
+          class="error-msg"
+        >
+          Phone number must be between 10 to 12 digits!
+        </span>
+        <div class="flex-break"></div>
+        <input
+          name="phone"
+          formControlName="phone"
+          placeholder="Phone"
+          title="Phone"
+          id="phone"
+          [ngClass]="{
+            'input-danger': f['phone'].errors && submitted
+          }"
+        />
+      </div>
+      <div class="input-block">
+        <span
+          *ngIf="f['birthday'].errors?.['required'] && submitted"
+          class="error-msg"
+        >
+          Birthday is required!
+        </span>
+        <div class="flex-break"></div>
+        <input
+          name="birthday"
+          formControlName="birthday"
+          placeholder="Birthday"
+          title="birthday"
+          dynamic-date-input
+          [ngClass]="{
+            'input-danger': f['birthday'].errors && submitted
+          }"
+        />
+      </div>
+    </div>
+    <div class="submit-container">
+      <a routerLink="/users">Go back</a>
+      <button class="btn-submit" type="submit">Create User</button>
+    </div>
+  </form>
+</div>

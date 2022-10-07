@@ -1,0 +1,38 @@
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+  height: auto;
+}
+.users-table th,
+.users-table td {
+  padding: 15px;
+  text-transform: capitalize;
+  transition-property: background-color, color, transform;
+  transition-duration: 300ms;
+}
+.users-table th {
+  text-align: left;
+  text-transform: uppercase;
+  color: #f8f8f8;
+}
+.users-table th:first-of-type,
+.users-table td:first-of-type {
+  border-top-left-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
+}
+.users-table th:last-of-type,
+.users-table td:last-of-type {
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+.users-table tr:nth-child(even) td {
+  background-color: #b4bad3;
+}
+.users-table tr:hover td {
+  background-color: #e7e9f1;
+  transform: translate(0, -0.125rem);
+}
+.users-table thead th {
+  background-color: #55608f;
+}

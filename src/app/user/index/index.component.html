@@ -1,0 +1,24 @@
+<section class="index-section">
+  <table class="users-table">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Birthday</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.address }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.birthdayString }}</td>
+        <td><a [routerLink]="user.id + '/edit'">Edit</a></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
